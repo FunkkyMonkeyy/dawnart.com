@@ -1,0 +1,71 @@
+.list-team {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1.5rem;
+  .block {
+    .thumb-res {
+      --thumb-res-tall: 140%;
+      border-radius: 2px;
+      margin-bottom: 0;
+      img {
+        border-radius: 2px;
+        @extend %fit-cover;
+        object-position: center top;
+      }
+    }
+    .info {
+      padding: 12px 12px;
+      transition: all 250ms ease 0s;
+      border-radius: 0px 0px 2px 2px;
+      .tt {
+         --tt: 1.25rem;
+        font-family: $f-primary;
+        margin-bottom: 4px;
+        color:$color-body;
+       
+        @include ellips(2);
+      
+      }
+      .title {
+        color:$secondary;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .list-team {
+    --bs-gutter-x: 1.25rem;
+    --bs-gutter-y: 1.75rem;
+    .block {
+      transition: all 350ms ease 0s;
+      border:2px solid transparent;
+      .info {
+        .tt {
+          --tt: 1.425rem;
+        }
+      }
+      &:hover {
+        .thumb-res {
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+          transition: all 350ms ease;
+          img {
+            transform: scale3d(1.1,1.1,1.1);
+          }
+        }
+        .info {
+          .tt {
+            color:$primary;
+          }
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .list-team {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 2.5rem;
+  }
+}

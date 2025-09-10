@@ -1,0 +1,269 @@
+.p-icon,
+.picon {
+  margin-bottom: 10px;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 26px;
+  #{$fa-all} {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    opacity: 0.7;
+  }
+  a {
+    color: inherit;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: rgba(#003870, 1);
+  color: rgba(#fff, 0.8);
+  font-size: 15px;
+  position: relative;
+  .copyr {
+    position: relative;
+    z-index: 2;
+  }
+  .logo {
+    --logo-width: 145px;
+    margin: 0;
+    top: 0;
+    left: 0;
+    &-full {
+      display: block !important;
+      background: transparent !important;
+      margin-bottom: 24px;
+      &::before {
+        content: none;
+      }
+    }
+  }
+  .desc {
+    color: rgba(#fff, 0.8);
+    margin-bottom: 24px;
+  }
+  .list-icon-social {
+    > a {
+      --btn-circle: 36px;
+      background: rgba(#fff,0.05);
+      border-radius: 2px !important;
+      box-shadow: 0px 0.8px 1.6px 0px rgba(16, 24, 40, 0.05);
+      &:hover {
+        color: #fff !important;
+      }
+      &.btn-zalo {
+        font-size: 20px;
+        &:hover {
+          background: $zalo;
+          box-shadow: 0px 0px 12px rgba($zalo, 0.5),
+            0px 0px 24px rgba($zalo, 0.25);
+        }
+      }
+      &.btn-facebook {
+        &:hover {
+          background: $facebook;
+          box-shadow: 0px 0px 12px rgba($facebook, 0.5),
+            0px 0px 24px rgba($facebook, 0.25);
+        }
+      }
+      &.btn-twitter {
+        &:hover {
+          background: $twitter;
+          box-shadow: 0px 0px 12px rgba($twitter, 0.5),
+            0px 0px 24px rgba($twitter, 0.25);
+        }
+      }
+      &.btn-youtube {
+        &:hover {
+          background: $youtube;
+          box-shadow: 0px 0px 12px rgba($youtube, 0.5),
+            0px 0px 24px rgba($youtube, 0.25);
+        }
+      }
+      &.btn-linkedin {
+        &:hover {
+          background: $linkedin;
+          box-shadow: 0px 0px 12px rgba($linkedin, 0.5),
+            0px 0px 24px rgba($linkedin, 0.25);
+        }
+      }
+      &.btn-telegram {
+        &:hover {
+          background: $telegram;
+          box-shadow: 0px 0px 12px rgba($telegram, 0.5),
+            0px 0px 24px rgba($telegram, 0.25);
+        }
+      }
+      &.btn-tiktok {
+        &:hover {
+          background: $tiktok;
+          box-shadow: 0px 0px 12px rgba($tiktok, 0.5),
+            0px 0px 24px rgba($tiktok, 0.25);
+        }
+      }
+    }
+  }
+  .list-style-angle {
+    li {
+      padding-left: 0px;
+      margin-bottom: 10px;
+      &::before {
+        content: none;
+      }
+    }
+  }
+  &-tt {
+    --tt-xs: 1.5rem;
+    @include media-breakpoint-down(md) {
+      --tt: 1.25rem;
+    }
+    color: #fff;
+    margin-bottom: 24px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    font-family: $f-primary;
+    font-weight: 500;
+    &:after {
+      content: "";
+      flex: 1 0 auto;
+      display: block;
+      width: 60px;
+      height: 1px;
+      margin-left: 0.8375rem;
+      background: rgba($primary, 1);
+    }
+  }
+  &-col {
+    margin-top: 3rem;
+  }
+
+  .picon,
+  .p-icon {
+    display: flex;
+    padding-left: 0;
+    align-items: center;
+    margin-bottom: 0;
+    #{$fa-all} {
+      position: relative;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      color: #fff;
+      background: $primary;
+      @extend %inline-flex-center;
+      width: 37px;
+      height: 37px;
+      border-radius: 2px;
+      font-size: 15px;
+      margin-right: 0.75rem;
+      flex: 0 0 auto;
+    }
+    a:not(.btn),
+    .hover-underline {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      @include a-hover-underline(#fff);
+    }
+    + .picon,
+    .p-icon {
+      margin-top: 15px;
+    }
+  }
+  .copy,
+  .copyr {
+    position: relative;
+    color: rgba(#fff, 1);
+    margin-top: 4rem;
+    padding: 0.75rem 0;
+    z-index: 10;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      pointer-events: none;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: -1;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .col-left {
+      @include media-breakpoint-down(md) {
+        margin-bottom: 12px;
+      }
+    }
+    a:not(.btn) {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      @include a-hover-underline(#fff);
+    }
+  }
+}
+@include media-breakpoint-up(sm) {
+  .footer {
+    .list-icon-social {
+      justify-content: end;
+    }
+    .copy,
+    .copyr {
+      margin-top: 2.5rem;
+      .col-left,
+      .col-right {
+        max-width: 100%;
+        flex: 0 0 auto;
+        width:50%;
+      }
+    }
+    &-tt {
+      &::after {
+        @include absolute(null, 0, -8px, 0);
+        margin-left: 0;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .footer {
+    .copy,
+    .copyr {
+      margin-top: 2.5rem;
+      .col-left,
+      .col-right {
+        max-width: 70%;
+      }
+      .col-left {
+        width: 60%;
+      }
+      .col-right {
+        width: 39%;
+      }
+    }
+    &-tt {
+      &::after {
+        @include absolute(null, 0, -8px, 0);
+        margin-left: 0;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .footer {
+    .container-fluid {
+      max-width: $container-3xl;
+    }
+    &-info {
+      width: 25%;
+    }
+    &-menu-list {
+      width: 22.5%;
+    }
+  }
+}

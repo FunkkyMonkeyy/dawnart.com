@@ -1,0 +1,59 @@
+@charset "UTF-8";
+@import "custom";
+
+@import "../bootstrap/bootstrap";
+@import url("https://cdn.bizmac.io/vendors/bootstrap/bootstrap-icons.css");
+@import url("https://cdn.bizmac.io/vendors/fonts/Awesome-v6.7.2/all.css");
+
+@import "mixin";
+// Installed Plugins
+@import "plugins/fancybox/fancybox";
+@import "plugins/flickity/flickity-install";
+@import "plugins/swiper/swiper";
+@import "plugins/parsley/parsley";
+@import "plugins/nice-select2/nice-select2";
+// Installed Font
+@import "core/fonts";
+// Reset
+@import "core/reset";
+
+//Core layout
+@import "core/title";
+@import "core/buttons";
+@import "core/table";
+@import "core/block";
+@import "core/list";
+@import "core/spacing";
+@import "core/background";
+@import "core/tab";
+@import "core/modal";
+
+// Core animation + JS
+@import "core/animation";
+@import "core/block-sidebar-stick";
+@import "core/dd-hover";
+
+// Layout Basic
+@import "layout/form";
+@import "layout/header";
+@import "layout/menu";
+@import "layout/footer";
+@import "layout/social";
+@import "layout/banner-all";
+@import "layout/menu-vertical";
+@import "layout/menu-mega";
+@import "layout/404";
+@import "layout/pagination";
+
+// Layout Module
+@import "page/_index";
+@import "page/_album";
+@import "page/_about";
+@import "page/_news";
+@import "page/_services";
+@import "page/_contact";
+@import "page/_search";
+
+// Content
+
+@import "page/_content";

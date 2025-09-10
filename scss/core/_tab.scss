@@ -1,0 +1,126 @@
+// Navlist nowrap
+.nav-nowrap {
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  position: relative;
+  &::after {
+    content: "";
+    border-bottom: 1px solid #eaecf0;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 1px;
+  }
+  .nav {
+    border-bottom: 2px solid #f1f1f1;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: auto;
+    margin-bottom: -2rem;
+    padding-bottom: 2rem;
+    .nav-link {
+      position: relative;
+      border-radius: 6px 6px 0px 0px;
+      padding: 0.25rem 0.75rem;
+      margin-right: 0.25rem;
+      margin-top: 0.25rem;
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 1rem;
+      border-bottom: 2px solid transparent;
+      color: #101828;
+    }
+  }
+}
+.nav-services {
+  &::after {
+    content: none;
+  }
+  .nav {
+    .nav-link {
+      --move-hover: -2px;
+      --bs-btn-font-size: 0.875rem;
+      padding: 8px 18px 8px;
+      line-height: 1.5;
+      border-radius: 30px;
+      background: #fff;
+      border: 1px solid #0000001a;
+      position: relative;
+      z-index: 10;
+      color: $color-body;
+      font-weight: 700;
+      @include media-breakpoint-up(lg) {
+        --bs-btn-font-size: 1rem;
+      }
+      &:not(:last-child) {
+        margin-right: 0.75rem;
+      }
+      &:first-child {
+        margin-left: auto;
+      }
+      &:last-child {
+        margin-right: auto;
+      }
+      &.active,
+      &:hover {
+        color: #fff;
+        border-color: $primary;
+        background-color: $primary;
+        &::after {
+          top: 0;
+        }
+      }
+    }
+  }
+}
+.nav-content {
+  &::after {
+    content: none;
+  }
+  .nav {
+    .nav-link {
+      padding: 8px 0px 8px;
+      line-height: 1.5;
+      background: #fff;
+      position: relative;
+      z-index: 10;
+      color: #a3a3a3;
+      font-family: $f-primary;
+      font-weight: 600;
+      font-size: 1.125rem;
+      @include media-breakpoint-up(lg) {
+        font-size: 1.188rem;
+      }
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: $primary;
+        transition: all 350ms ease 0s;
+      }
+      &.active,
+      &:hover {
+        color: $primary;
+        background-color: transparent;
+        &::after {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.tab-pane {
+  &.fade {
+    &.show {
+      animation: tab-active 0.3s ease-in forwards;
+    }
+  }
+}

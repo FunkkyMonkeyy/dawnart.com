@@ -1,0 +1,124 @@
+.banner-lg {
+  --tt-md: calc(1.75rem + 0.5vw);
+  position: relative;
+  z-index: 11;
+  background-color: #f2f2f2;
+  &:after {
+    content: "";
+    @extend %absolute-all;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .container {
+    min-height: var(--banner-height, 280px);
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    @include media-breakpoint-down(md) {
+      padding-bottom: 24px;
+    }
+  }
+  .text-banner {
+    text-align: center;
+    &.text-center {
+      #{$tt-all} {
+        &::after {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+    &.text-end {
+      #{$tt-all} {
+        &::after {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+  #{$tt-all} {
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: $f-primary;
+    font-weight: 600;
+    text-transform: capitalize;
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 2px;
+      margin: 8px auto 18px;
+      background: #ffffff4d;
+    }
+  }
+  .breadcrumb {
+    padding: 0;
+  }
+}
+.breadcrumb {
+  justify-content: center;
+  color: #fff;
+  li {
+    margin: 0;
+    display: inline-flex;
+    + li::before {
+      --bs-breadcrumb-divider: "\f219";
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 900;
+      font-size: 6px;
+      align-self: center;
+    }
+  }
+  .active,
+  a {
+    color: inherit;
+    transition: all 350ms ease;
+    &:hover {
+      color: #00A1DA;
+      &::before {
+        color: #1d2939;
+      }
+    }
+  }
+}
+.block-breadcrumb {
+  @extend %bg-image;
+  background: #f9fafb;
+  .breadcrumb {
+    color: $color-body;
+    li {
+      display: inline-flex;
+      align-items: center;
+      color: $color-body;
+      + li {
+        &::before {
+          @include icon("\f219");
+          font-weight: 900;
+          font-size: 7px;
+          color: inherit;
+        }
+      }
+    }
+    a,
+    .active {
+      color: inherit;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .banner-lg {
+    --banner-height: 330px;
+    --tt-md: calc(1.75rem + 0.7vw);
+  }
+}
+@include media-breakpoint-up(xl) {
+  .banner-lg {
+    --banner-height: 360px;
+  }
+}

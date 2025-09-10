@@ -1,0 +1,127 @@
+.box-contactInfo {
+  background: #003870;
+  position: relative;
+  padding: 40px 40px;
+  z-index: 10;
+  @include media-breakpoint-down(md) {
+    padding: 28px;
+  }
+  &__bl {
+    .picon,
+    .p-icon {
+      display: flex;
+      padding: 16px;
+      border-radius: 5px;
+      align-items: flex-start;
+      #{$fa-all} {
+        font-weight: 400;
+        color: #fff;
+        opacity: 1;
+        position: relative;
+        @extend %flex-center;
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+        background: $primary;
+        flex: 0 0 auto;
+        margin-right: 1.125rem;
+        border-radius: 50%;
+      }
+      .form-group {
+        .label {
+          display: block;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 8px;
+          font-size:1.25rem;
+          font-family: $f-primary;
+          font-weight: 600;
+        }
+        .block {
+          color: #fff;
+        }
+        a.block {
+          @include a-hover-underline(#fff);
+        }
+      }
+    }
+  }
+  &__social {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ffffff4d;
+    .label__social {
+      font-size: 1.0625rem;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 9px;
+    }
+    .list-icon-social {
+      > a {
+        color: #ffbd47 !important;
+        background: #ffffff1a;
+        &:hover {
+          color: #fff !important;
+        }
+        &.btn-zalo {
+          font-size: 20px;
+          &:hover {
+            background: $zalo;
+            box-shadow: 0px 0px 12px rgba($zalo, 0.5),
+              0px 0px 24px rgba($zalo, 0.25);
+          }
+        }
+        &.btn-facebook {
+          &:hover {
+            background: $facebook;
+            box-shadow: 0px 0px 12px rgba($facebook, 0.5),
+              0px 0px 24px rgba($facebook, 0.25);
+          }
+        }
+        &.btn-twitter {
+          &:hover {
+            background: $twitter;
+            box-shadow: 0px 0px 12px rgba($twitter, 0.5),
+              0px 0px 24px rgba($twitter, 0.25);
+          }
+        }
+        &.btn-youtube {
+          &:hover {
+            background: $youtube;
+            box-shadow: 0px 0px 12px rgba($youtube, 0.5),
+              0px 0px 24px rgba($youtube, 0.25);
+          }
+        }
+        &.btn-linkedin {
+          &:hover {
+            background: $linkedin;
+            box-shadow: 0px 0px 12px rgba($linkedin, 0.5),
+              0px 0px 24px rgba($linkedin, 0.25);
+          }
+        }
+        &.btn-telegram {
+          &:hover {
+            background: $telegram;
+            box-shadow: 0px 0px 12px rgba($telegram, 0.5),
+              0px 0px 24px rgba($telegram, 0.25);
+          }
+        }
+        &.btn-tiktok {
+          &:hover {
+            background: $tiktok;
+            box-shadow: 0px 0px 12px rgba($tiktok, 0.5),
+              0px 0px 24px rgba($tiktok, 0.25);
+          }
+        }
+      }
+    }
+  }
+}
+.map {
+  @include media-breakpoint-up(lg) {
+    --thumb-res-wide: 35%;
+  }
+  @include media-breakpoint-up(xl) {
+    --thumb-res-wide: 24%;
+  }
+}

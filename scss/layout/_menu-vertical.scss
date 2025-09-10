@@ -1,0 +1,136 @@
+.menu-vertical {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    margin: 0;
+  }
+  a {
+    text-decoration: none !important;
+    padding: 1px 0;
+    line-height: 1.35;
+    color: rgba(#fff, 0.7);
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: top;
+  }
+  > li {
+    position: relative;
+    &:not(:last-child){
+      border-bottom: 1px solid #f5f5f5;
+    }
+    > a {
+      color: rgba($color-body, 0.7);
+      position: relative;
+      padding: 8px 0px;
+      font-size: 0.9375rem;
+      display: flex;
+      font-weight: 600;
+      align-items: center;
+      border-radius: 5px;
+      overflow: hidden;
+      letter-spacing: -0.2px;
+      transition: all 250ms ease;
+    }
+    &:hover > a,
+    &.active > a {
+      color: #FF8F2B;
+      &:after {
+        opacity: 1;
+        color: #FF8F2B;
+      }
+    }
+    &.active > a {
+      &::after {
+        transform: translateX(0px);
+      }
+    }
+  }
+  ul {
+    display: none;
+    padding: 0;
+    margin: 3px 0 8px 16px;
+    a {
+      margin-bottom: 5px;
+    }
+  }
+  // hover
+  li:hover > a,
+  li.active > a {
+    color: #FF8F2B;
+  }
+  li.active > ul {
+    display: block;
+  }
+  &--haveSub {
+    .i-drop {
+      padding: 2px 6px;
+      margin-right: 0.325rem;
+      font-size: 11px;
+      color: #FF8F2B;
+      transition: all 350ms linear;
+    }
+    > li {
+      > a {
+        font-weight: 600;
+        &::before {
+          content: none;
+        }
+      }
+      &:hover > a,
+      &.active > a {
+        padding-left: 0px;
+        color: #344054;
+      }
+      &.active > a {
+        font-weight: 600;
+        .i-drop {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    ul {
+      margin-left: 23px;
+      a {
+        padding: 5px 0px;
+        font-size: 0.875rem;
+        margin-bottom: 0;
+      }
+    }
+    li:hover > a,
+    li.active > a {
+      color: #fff;
+      > span {
+        >span{
+          color: $primary;
+          background-size: 100% var(--bg-h);
+          background-position-x: left;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .menu-vertical {
+    font-size: 15px;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .menu-vertical {
+    font-size: 16px;
+  }
+}
+
+.menu-counter {
+  > li {
+    > a {
+      &::after {
+        content: attr(data-count);
+        margin-left: auto;
+        color: rgba($color-body, 0.7);
+        font-size: 0.8375rem;
+      }
+    }
+  }
+}

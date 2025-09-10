@@ -1,0 +1,294 @@
+.modal {
+  .modal-content > .btn-close {
+    @include absolute(0, 0);
+    z-index: 77;
+    margin: 6px;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    background-color: #f3f3f3;
+  }
+}
+.modal-backdrop {
+  background-color: rgba(#000, 0.6);
+  backdrop-filter: blur(1rem);
+  &.show {
+    opacity: 1;
+  }
+}
+
+.modalRegister {
+  .modal-dialog {
+    @include media-breakpoint-up(md) {
+      max-width: 720px;
+    }
+    @include media-breakpoint-up(lg) {
+      max-width: 840px;
+    }
+  }
+  .modal-content {
+    background: #F5F7FA;
+    position: relative;
+    z-index: 10;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 0;
+      width: 203px;
+      height: 204px;
+      background: url("skin/icon/modal-circle.svg") no-repeat center/100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 203px;
+      height: 204px;
+      background: url("skin/icon/modal-circle-1.svg") no-repeat center/100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+  .modal-body {
+    padding: 0;
+  }
+  .box-content {
+    .box-form {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 100%;
+      padding: 40px 32px 40px 32px;
+      .title {
+        font-family: $f-primary;
+        color: #1f3893;
+        font-weight: 600;
+      }
+      .desc {
+        color: $desc;
+      }
+    }
+  }
+}
+.teamDialog {
+  .modal-content {
+    position: relative;
+    background: #F5F7FA;
+    z-index: 10;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 0;
+      width: 203px;
+      height: 204px;
+      background: url("skin/icon/modal-circle.svg") no-repeat center/100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 203px;
+      height: 204px;
+      background: url("skin/icon/modal-circle-1.svg") no-repeat center/100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+  .modal-body {
+    padding: 48px 24px;
+  }
+}
+@include media-breakpoint-down(md) {
+  .teamDialog {
+    .modal-dialog {
+      height: calc(100% - 1rem);
+    }
+    .modal-content {
+      max-height: 100%;
+      overflow: hidden;
+    }
+    .modal-body {
+      overflow-y: auto;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .teamDialog {
+    .modal-body {
+      padding: 80px 48px;
+    }
+  }
+}
+.teamInfo {
+  &__thumb {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 100%;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      max-height: 100%;
+      @include absolute(0, 0, 0, 0);
+      border-radius: 6px;
+    }
+  }
+  &__content {
+    padding-right: 24px;
+    .tt {
+      --tt: calc(24px + 0.5vw);
+      line-height: 1;
+      margin-bottom:24px;
+      font-family: $f-primary;
+      font-weight:600;
+      color: $dark-secondary;
+    }
+    .title{
+      display: inline-flex;
+      font-size:1rem;
+      color:$secondary;
+      align-items: center;
+      margin-bottom:6px;
+      font-weight: 500;
+    }
+  }
+  &__table {
+    width: 100%;
+    table-layout: auto;
+    margin-bottom: 24px;
+    th {
+      font-weight: 600;
+    }
+    tr {
+      border-bottom: 1px dashed #d0d5dd;
+    }
+    a {
+      color: #0065ff;
+      text-decoration: underline;
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .teamInfo {
+    &__block {
+      display: flex;
+      align-items: start;
+    }
+    &__thumb {
+      width: 50%;
+      flex: 0 0 auto;
+      padding-bottom: 60%;
+      margin-right: 2rem;
+      margin-bottom:0
+    }
+    &__content {
+      max-height: 550px;
+      overflow: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: #d0d5dd transparent;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .teamInfo {
+    &__block {
+      display: flex;
+      align-items: start;
+    }
+    &__thumb {
+      width: 40%;
+      flex: 0 0 auto;
+      padding-bottom: 50%;
+      margin-right: 3rem;
+    }
+    &__content {
+      max-height: 500px;
+    }
+  }
+}
+
+.modal-notification {
+  .modal-body {
+    position: relative;
+    overflow: hidden;
+    padding:0;
+    text-align: center;
+  }
+  .icon-area{
+    background:#96DAF6;
+    padding:24px;
+    position: relative;
+    &::after{
+      content:"";
+      position: absolute;
+      height:0;
+      width:0;
+      top:100%;
+      left:0;
+      right:0;
+      margin:auto;
+      border-top: 18px solid #96DAF6;
+      border-left:16px solid transparent;
+      border-right:16px solid transparent;
+    }
+  }
+  .info{
+    padding:48px;
+  }
+  .icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 50%;
+    font-size: 40px;
+    position: relative;
+    z-index: 10;
+    color: #fff;
+  }
+  .tt-md {
+    position: relative;
+    color:#003870;
+    font-family: $f-primary;
+    font-weight: 600;
+    margin-bottom: 32px;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: -24px;
+      right: 0;
+      margin: auto;
+      width: 60px;
+      background: rgba(#00A1DA, 1);
+      height: 3px;
+      border-radius: 2px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: 64px;
+      width: 20px;
+      right: 0;
+      margin: auto;
+      background: rgba(#00A1DA, 0.6);
+      height: 3px;
+      border-radius: 2px;
+    }
+  }
+}

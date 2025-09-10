@@ -1,0 +1,80 @@
+.order-icon-list {
+  list-style: none;
+  padding: 0;
+  > li {
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .icon {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size:0.75rem;
+  }
+}
+.list-style-angle {
+  &,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    &:before {
+      content: "\f0da";
+      font-family: "font awesome 6 pro";
+      @include absolute(5px, null, null, 2px);
+      line-height: 1;
+      opacity: 1;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  }
+  a {
+    @include a-hover-underline(#fff);
+    margin-bottom: 6px;
+    color: inherit;
+    #{$fa-all} {
+      margin: 2px 8px 0 2px;
+      opacity: 0.8;
+    }
+  }
+}
+.content__list {
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10vh 25px;
+  max-width: 1300px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 200px;
+  grid-gap: 4rem;
+  grid-row-gap: 6rem;
+  justify-content: center;
+  list-style: none;
+}
+
+.content__item {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  counter-increment: itemcounter;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  &::before {
+    color: $desc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: counters(itemcounter, ".", decimal-leading-zero);
+  }
+}

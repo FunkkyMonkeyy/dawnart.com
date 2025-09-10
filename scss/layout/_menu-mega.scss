@@ -1,0 +1,215 @@
+// Menu Mega
+@mixin menu-mega() {
+  .menuMega {
+    &__pannel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 350ms ease 0s;
+      z-index: 100;
+      bottom: 0;
+      &::after {
+        content: "";
+        background: #0066cc;
+        @include absolute(0, 0, 0, -20%);
+        pointer-events: none;
+        z-index: -1;
+        width: 200%;
+      }
+      &.open-menu {
+        opacity: 1;
+        transform: none;
+        visibility: visible;
+        .menuMega__grid {
+          animation: scaleFadeIn 0.4s cubic-bezier(0.75, 0.02, 0.5, 1) both;
+        }
+      }
+    }
+    &__wrapper {
+      margin: 0 1rem;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(#fff, 0.5);
+    }
+    &__grid {
+      opacity: 0;
+      &-heading {
+        margin-bottom: 32px;
+      }
+      &-title {
+        font-size: 1.325rem;
+        display: inline-flex;
+        align-items: center;
+        color: #fff;
+        font-weight: 600;
+        line-height: 1.35;
+        margin-bottom: 7px;
+        cursor: pointer;
+        #{$fa-all} {
+          font-size: 1.0625rem;
+          margin-right: 0.45rem;
+        }
+      }
+      &-desc {
+        color: rgba(#fff, 0.7);
+        font-size: 0.9375rem;
+      }
+      &-content {
+        .sub-tt-mega {
+          font-size: 0.875rem;
+          color: #d0d5dd;
+        }
+        ul {
+          display: block;
+          padding-left: 0;
+          > li {
+            a {
+              font-size: 1.0625rem;
+              color: #fff;
+              border-top: 1px solid rgba(#fff, 0.5);
+            }
+          }
+        }
+      }
+      &-list {
+        @include make-row();
+        > * {
+          flex: 0 0 auto;
+          max-width: 100%;
+          padding-right: calc(var(--bs-gutter-x) * 0.5);
+          padding-left: calc(var(--bs-gutter-x) * 0.5);
+          margin-top: var(--bs-gutter-y);
+        }
+      }
+      &-img {
+        padding: 1.25rem 0.5rem;
+        img {
+          display: block;
+          max-height: 100%;
+          margin: auto;
+        }
+      }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    .menu-body {
+      position: relative;
+    }
+    .menuMega {
+      &__pannel {
+        top: 100%;
+        right: auto;
+        bottom: auto;
+        pointer-events: none;
+        &::after {
+          background: #f2f4f7;
+          box-shadow: 6px 0px 32px 12px rgba(68, 68, 68, 0.25);
+        }
+        &.open-menu {
+          pointer-events: all;
+        }
+      }
+      &__wrapper {
+        margin: 0;
+        padding: 2rem 0rem;
+        border-top: 0;
+      }
+      &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        > * {
+          flex: 0 0 auto;
+          max-width: 100%;
+        }
+        &-heading {
+          width: 30%;
+          padding-right: 2rem;
+        }
+        &-title {
+          color: $color-body;
+          font-size: 1.5rem;
+          #{$fa-all} {
+            display: none;
+          }
+        }
+        &-desc {
+          color: $desc;
+        }
+        &-content {
+          width: 45%;
+          .sub-tt-mega {
+            color: rgba($color-body, 0.75);
+            margin-bottom: 0;
+            font-size: 0.875rem;
+          }
+          ul {
+            position: static;
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+            box-shadow: none;
+            background: none;
+            min-width: 0px;
+            > li {
+              h4 {
+                margin-bottom: 0;
+                font-weight: 300;
+              }
+              a {
+                font-size: 0.9375rem;
+                color: $color-body;
+                padding-left: 0;
+                padding-right: 0;
+                border-top-color: rgba(#0066cc, 0.15);
+                position: relative;
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  background: #0066cc;
+                  width: 0;
+                  height: 1px;
+                  transition: width 250ms cubic-bezier(0.23, 1, 0.32, 1);
+                }
+                &:hover {
+                  color: #0066cc;
+                  &::before {
+                    width: 100%;
+                    left: 0;
+                  }
+                }
+              }
+              + li {
+                margin-top: 2px;
+              }
+            }
+          }
+        }
+        &-img {
+          width: 25%;
+        }
+      }
+    }
+    .menu-slide {
+      // li {
+      //   position: unset;
+      // }
+      li:hover {
+        > .menuMega__pannel {
+          pointer-events: all;
+          opacity: 1;
+          visibility: visible;
+          .menuMega__grid {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+.menu {
+  @include menu-mega;
+}

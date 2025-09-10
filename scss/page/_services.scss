@@ -1,0 +1,225 @@
+.services__list {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+  .block {
+    height: 100%;
+    padding: 60px 36px;
+    border-radius: 5px;
+    &::after {
+      content: "";
+      @include absolute(0, 0, 0, 0);
+      background: #003870;
+      z-index: -1;
+      border-radius: 2px;
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+      img {
+        max-height: 100%;
+      }
+    }
+    .numberic {
+      font-size: 60px;
+      position: absolute;
+      bottom: 0px;
+      right: 30px;
+      z-index: 0;
+      pointer-events: none;
+      color: #f5f5f5;
+      -webkit-text-stroke: 2px #bc986b2b;
+      -webkit-text-fill-color: #fff;
+      opacity: 0.3;
+      font-family: $f-primary;
+      font-weight: 600;
+    }
+    .info {
+      .tt {
+        --tt: 1.125rem;
+        font-weight: 600;
+        font-family: $f-primary;
+        color: #fff;
+        position: relative;
+        margin-bottom: 20px;
+        > span {
+          @include ellips(2);
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 60px;
+          height: 1px;
+          background: $primary;
+        }
+      }
+      .desc {
+        font-size: 0.9375rem;
+        color: rgba(#fff, 0.75);
+        @include ellips(3);
+      }
+    }
+  }
+}
+@include media-breakpoint-up(sm) {
+  .services__list {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1.5rem;
+    .block {
+      .info {
+        .tt {
+          --tt: 1.188rem;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .services__list {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 2rem;
+    .block {
+      align-items: center;
+      .info {
+        .tt {
+          --tt: 1.25rem;
+        }
+        .desc {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .services__list {
+    --bs-gutter-x: 1.25rem;
+    --bs-gutter-y: 1.75rem;
+    .block {
+      padding: 70px 40px;
+      &::after {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 350ms ease 0s;
+      }
+      .numberic {
+        opacity: 0.7;
+      }
+      .info {
+        .tt {
+          --tt: 1.325rem;
+          line-height: 1.3;
+          position: relative;
+          color: $color-body;
+        }
+        .desc {
+          color: $desc;
+        }
+        .tt,
+        .desc {
+          transition: all 400ms ease 0s;
+        }
+      }
+      &:hover {
+        &::after {
+          opacity: 1;
+          visibility: visible;
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+        .icon{
+          filter: brightness(0)invert(1);
+        }
+        .numberic {
+          opacity: 0.9;
+        }
+        .info {
+          .tt,
+          .desc {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .list-services {
+    --bs-gutter-y: 2rem;
+    .block {
+      .info {
+        .tt {
+          --tt: 1.188rem;
+        }
+        .desc {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.about-course {
+  background: #eceffb;
+  padding: 32px 0px;
+  &__list {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0rem;
+    @include media-breakpoint-up(sm) {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 1.5rem;
+    }
+    .block {
+      padding: 0px 0px 0px 28px;
+      margin-top: 12px;
+      .icon {
+        position: absolute;
+        top: 2px;
+        left: 4px;
+        font-size: 0.9375rem;
+        color: #ffbd47;
+      }
+      .title {
+        font-size: 0.8375rem;
+        margin-bottom: 6px;
+        @include media-breakpoint-up(xl) {
+          font-size: 0.9375rem;
+        }
+      }
+      .desc {
+        font-family: $f-primary;
+        font-weight: 600;
+        font-size: 1rem;
+        @include media-breakpoint-up(xl) {
+          font-size: 1.188rem;
+        }
+      }
+    }
+    .col {
+      &:first-child {
+        .block {
+          margin-top: 0;
+        }
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(#d0d5dd, 0.5);
+        .block {
+          margin-bottom: 12px;
+        }
+      }
+      @include media-breakpoint-up(sm) {
+        .block {
+          margin-top: 0;
+        }
+        &:not(:last-child) {
+          margin-bottom: 0;
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

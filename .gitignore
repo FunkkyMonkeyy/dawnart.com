@@ -1,0 +1,7 @@
+
+# Folder Modules
+node_modules/
+
+# Package node install
+package.json
+package-lock.json
